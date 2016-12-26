@@ -90,9 +90,8 @@ class Input extends CI_Controller {
                 "nopesujianun"=>$nopesujianun,
                 "kelas"=>$kelas,
                 "subkelas"=>$subkelas,
-                "status"=>$status
-//                "smt"=>$smt
-                    ]);
+                "status"=>$status,
+                "smt"=>$smt]);
             echo $datainduksiswa;
         }else{
             $this->load->view('input_siswa/inputsiswa');
