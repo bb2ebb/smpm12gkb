@@ -9,6 +9,6 @@ git config --global user.name "bb2ebb"
 git config --global user.email bb2ebb@gmail.com
 git init
 git add *
-git commit –m "v1"
+git commit -m "v1"
 git remote add origin http://github.com/bb2ebb/smpm12gkb.git
 git push -u origin master

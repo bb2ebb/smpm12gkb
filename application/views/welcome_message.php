@@ -19,7 +19,7 @@
         <header>
             <div class="text-center head-title">
                 <img src="./assets/1hmscr/img/logo.png" alt="">
-                <h2><span>SMP</span> Muhammadiyah 12 GKB Gresik</h2>
+                <!--<h2><span>SMP</span> Muhammadiyah 12 GKB Gresik</h2>-->
             </div>
         </header>
         <section class="demo">
@@ -98,17 +98,12 @@
         <footer>
             <div class="text-center">
                 <p class="copyright">
-                    Screen © 2016. All Rights Reserved.
+                    dibuat oleh <b>bb2ebb</b> © 2016. All Rights Reserved.
                 </p>
             </div>
         </footer>
-        <!-- END FOOTER -->
-
-        <!-- jQuery -->
         <script src="./assets/1hmscr/js/jquery-1.js"></script>
-        <!-- Latest compiled and minified JavaScript -->
         <script src="./assets/1hmscr/js/bootstrap.js"></script>
-        <!-- WOW - Reveal Animations When You Scroll -->
         <script src="./assets/1hmscr/js/wow.js"></script>
 
         <script type="text/javascript">

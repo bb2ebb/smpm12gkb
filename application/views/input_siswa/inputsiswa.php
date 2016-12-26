@@ -1,92 +1,214 @@
-<!DOCTYPE html>
-<html lang="en"><head>
+<html class="no-js" lang="en">
+    <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Bootstrap Login Form Template</title>
-        <link rel="stylesheet" href="./assets/2inputsiswa/css.css">
-        <link rel="stylesheet" href="./assets/2inputsiswa/bootstrap.css">
-        <link rel="stylesheet" href="./assets/2inputsiswa/font-awesome.css">
-        <link rel="stylesheet" href="./assets/2inputsiswa/form-elements.css">
-        <link rel="stylesheet" href="./assets/2inputsiswa/style.css">
-        <link rel="shortcut icon" href="http://azmind.com/demo/bootstrap-login-forms/form-1/assets/ico/favicon.png">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://azmind.com/demo/bootstrap-login-forms/form-1/assets/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://azmind.com/demo/bootstrap-login-forms/form-1/assets/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://azmind.com/demo/bootstrap-login-forms/form-1/assets/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="http://azmind.com/demo/bootstrap-login-forms/form-1/assets/ico/apple-touch-icon-57-precomposed.png">
-
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Screen - Creative HTML Template</title>
+        <link rel="stylesheet" href="./assets/0global/css/bootstrap.css">
+        <link rel="stylesheet" href="./assets/0global/css/jquery-ui.css">
+        <link href="./assets/1hmscr/css/css.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="./assets/1hmscr/css/animate.css">	
+        <link rel="stylesheet" href="./assets/1hmscr/css/style.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
     </head>
 
     <body>
+        <div class="preloader" style="display: none;">
+            <div class="status" style="display: none;">
+                <div class="status-mes"></div>
+            </div>
+        </div>
+        <header>
+            <div class="text-center head-title">
+                <img src="./assets/1hmscr/img/logo.png" alt="">
+            </div>
+        </header>
 
-        <!-- Top content -->
+
         <div class="top-content">
-
             <div class="inner-bg">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>Bootstrap</strong> Login Form</h1>
-                            <div class="description">
-                                <p>
-                                    This is a free responsive login form made with Bootstrap. 
-                                    Download it on <a href="http://azmind.com/"><strong>AZMIND</strong></a>, customize and use it as you like!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                             <div class="form-top">
                                 <div class="form-top-left">
-                                    <h3>Login to our site</h3>
-                                    <p>Enter your username and password to log on:</p>
+                                    <p>Masukkan data siswa berikut ini:</p>
                                 </div>
                                 <div class="form-top-right">
                                     <i class="fa fa-key"></i>
                                 </div>
                             </div>
                             <div class="form-bottom">
-                                <form role="form" action="" method="post" class="login-form">
+                                <form role="form" action="input" method="post" class="login-form">
                                     <div class="form-group">
-                                        <label class="sr-only" for="form-username">Username</label>
-                                        <input name="form-username" placeholder="Username..." class="form-username form-control" id="form-username" type="text">
+                                        <!--<label class="sr-only" for="namalengkap">Nama Lengkap</label>-->
+                                        <input name="namalengkap" placeholder="Nama Lengkap..." class="form-username form-control" id="form-namalengkap" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <label class="sr-only" for="form-password">Password</label>
-                                        <input name="form-password" placeholder="Password..." class="form-password form-control" id="form-password" type="password">
+                                        <input name="namapanggilan" placeholder="Nama Panggilan..." class="form-top form-control" id="form-namapanggilan" type="text">
                                     </div>
-                                    <button type="submit" class="btn">Sign in!</button>
+                                    <div class="form-group">
+                                        <select name="jeniskelamin" class="form-top form-control" id="form-namapanggilan">
+                                            <option value="1">Laki - Laki</option>
+                                            <option value="2">Perempuan</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="tempatlahir" placeholder="Tempat Lahir..." class="form-top form-control" id="form-tempatlahir" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="tanggallahir" placeholder="Tanggal Lahir..." class="form-top form-control" id="form-tanggallahir" type="date">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="nik" onkeypress="return isNumberKey(event)" placeholder="Nomor Induk Kependudukan / Nomor di Kartu Keluarga..." class="form-top form-control" id="form-nik" type="number">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="nis" onkeypress="return isNumberKey(event)" placeholder="Nomor Induk Siswa / NIS..." class="form-top form-control" id="form-nis" type="number">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="nisn" onkeypress="return isNumberKey(event)" placeholder="Nomor Induk Siswa Nasional / NISN..." class="form-top form-control" id="form-nisn" type="number">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="beratbadan" onkeypress="return isNumberKey(event)" placeholder="Berat Badan - Satuan KG..." class="form-top form-control" id="form-beratbadan" type="number">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="tinggibadan" onkeypress="return isNumberKey(event)" placeholder="Tinggi Badan - Satuan cm..." class="form-top form-control" id="form-tinggibadan" type="number">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="jmlsaudarakandung" onkeypress="return isNumberKey(event)" placeholder="Jumlah Saudara Kandung..." class="form-top form-control" id="form-jmlsaudarakandung" type="number">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="namaayah" placeholder="Nama Ayah..." class="form-top form-control" id="form-namaayah" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="tempatlahirayah" placeholder="Tempat Lahir Ayah..." class="form-top form-control" id="form-tempatlahirayah" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="tanggallahirayah" placeholder="Tanggal Lahir Ayah..." class="form-top form-control" id="form-tanggallahirayah" type="date">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="pekerjaanayah" placeholder="Pekerjaan Ayah..." class="form-top form-control" id="form-pekerjaanayah" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="kategoripekerjaanayah" placeholder="Kategori Pekerjaan Ayah..." class="form-top form-control" id="form-kategoripekerjaanayah" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="pendidikanayah" placeholder="Pendidikan Ayah..." class="form-top form-control" id="form-pendidikanayah" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="penghasilanayah" placeholder="Penghasilan Ayah..." class="form-top form-control" id="form-penghasilanayah" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="namaibu" placeholder="Nama Ibu..." class="form-top form-control" id="form-namaibu" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="tempatlahiribu" placeholder="Tempat Lahir Ibu..." class="form-top form-control" id="form-tempatlahiribu" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="tanggallahiribu" placeholder="Tanggal Lahir Ibu..." class="form-top form-control" id="form-tanggallahiribu" type="date">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="pekerjaanibu" placeholder="Pekerjaan Ibu..." class="form-top form-control" id="form-pekerjaanibu" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="kategoripekerjaanibu" placeholder="Kategori Pekerjaan Ibu..." class="form-top form-control" id="form-kategoripekerjaanibu" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="pendidikanibu" placeholder="Pendidikan Ibu..." class="form-top form-control" id="form-pendidikanibu" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="penghasilanibu" placeholder="Penghasilan Ibu..." class="form-top form-control" id="form-penghasilanibu" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="namawali" placeholder="Nama Wali..." class="form-top form-control" id="form-namawali" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="tempatlahirwali" placeholder="Tempat Lahir Wali..." class="form-top form-control" id="form-tempatlahirwali" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="tanggallahirwali" placeholder="Tanggal Lahir Wali..." class="form-top form-control" id="form-tanggallahirwali" type="date">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="pekerjaanwali" placeholder="Pekerjaan Wali..." class="form-top form-control" id="form-pekerjaanwali" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="kategoripekerjaanwali" placeholder="Kategori Pekerjaan Wali..." class="form-top form-control" id="form-kategoripekerjaanwali" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="pendidikanwali" placeholder="Pendidikan Wali..." class="form-top form-control" id="form-pendidikanwali" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="penghasilanwali" placeholder="Penghasilan Wali..." class="form-top form-control" id="form-penghasilanwali" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="asalsekolah" placeholder="Asal Sekolah SD..." class="form-top form-control" id="form-asalsekolah" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="noijazah" placeholder="Nomor Seri Ijazah..." class="form-top form-control" id="form-noijazah" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="noskhun" placeholder="Nomor Seri SKHUN..." class="form-top form-control" id="form-noskhun" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="nopesujianun" placeholder="Nomor Peserta Ujian UN SD..." class="form-top form-control" id="form-nopesujianun" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="kelas" placeholder="Kelas VII, VIII, IX..." class="form-top form-control" id="form-kelas" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="subkelas" placeholder="Sub Kelas A / B / C / D / E / F / G / H..." class="form-top form-control" id="form-subkelas" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="status" placeholder="Status di Sekolah Ini..." class="form-top form-control" id="form-status" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="smt" onkeypress="return isNumberKey(event)" placeholder="Semester..." class="form-top form-control" id="form-smt" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="awaltanggalmasuksekolah" placeholder="Awal Tanggal Masuk Sekolah..." class="form-top form-control" id="form-awaltanggalmasuksekolah" type="date">
+                                    </div>
+                                    <button name="submitsiswa1" type="submit" class="btn">Masukkan!</button>
                                 </form>
                             </div>
                         </div>
                     </div>
-<!--                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3 social-login">
-                            <h3>...or login with:</h3>
-                            <div class="social-login-buttons">
-                                <a class="btn btn-link-1 btn-link-1-facebook" href="#">
-                                    <i class="fa fa-facebook"></i> Facebook
-                                </a>
-                                <a class="btn btn-link-1 btn-link-1-twitter" href="#">
-                                    <i class="fa fa-twitter"></i> Twitter
-                                </a>
-                                <a class="btn btn-link-1 btn-link-1-google-plus" href="#">
-                                    <i class="fa fa-google-plus"></i> Google Plus
-                                </a>
-                            </div>
-                        </div>
-                    </div>-->
                 </div>
             </div>
-
         </div>
-        <!-- Javascript -->
-        <script src="./assets/2inputsiswa/jquery-1.js"></script>
-        <script src="./assets/2inputsiswa/bootstrap.js"></script>
-        <script src="./assets/2inputsiswa/jquery.js"></script>
-        <script src="./assets/2inputsiswa/scripts.js"></script>
-        <div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 611px; width: 1007px; z-index: -999999; position: fixed;"><img style="position: absolute; margin: 0px; padding: 0px; border: medium none; width: 1007px; height: 671.333px; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -30.1667px;" src="./assets/2inputsiswa/1.jpg"></div>
+        <footer>
+            <div class="text-center">
+                <p class="copyright">dibuat oleh <b>bb2ebb</b> © 2016. All Rights Reserved.</p>
+            </div>
+        </footer>
+        <script src="./assets/1hmscr/js/jquery-1.js"></script>
+        <script src="./assets/0global/js/jquery-ui.js"></script>
+        <script src="./assets/0global/js/bootstrap.js"></script>
+        <script src="./assets/1hmscr/js/wow.js"></script>
+
+        <script type="text/javascript">
+            /*preloader*/
+            $(window).load(function () {
+                $('.status').fadeOut();
+                $('.preloader').delay(350).fadeOut('slow');
+            });
+            /*End preloader*/
+        </script>
+        <script type="text/javascript">
+            /*wow animation*/
+            new WOW().init();
+            /*End wow animation*/
+        </script>
+        <script>$(function () {$("#form-tanggallahir, #form-tanggallahiribu, #form-tanggallahirwali, #form-tanggallahirayah, #form-awaltanggalmasuksekolah").datepicker();});</script>
+        <script>
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            if ((charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+        </script>
+        
     </body>
 </html>
+
