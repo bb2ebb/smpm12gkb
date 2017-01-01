@@ -33,6 +33,7 @@
                         <div class="col-sm-6 col-sm-offset-3 form-box">
                             <div class="form-top">
                                 <div class="form-top-left">
+                                    <?php echo (isset($error)?$error:"") ?>
                                     <p>Masukkan data siswa berikut ini:</p>
                                 </div>
                                 <div class="form-top-right">
@@ -42,13 +43,14 @@
                             <div class="form-bottom">
                                 <form role="form" action="input" method="post" class="login-form">
                                     <div class="form-group">
-                                        <!--<label class="sr-only" for="namalengkap">Nama Lengkap</label>-->
+                                        <!--<label for="namalengkap">Nama Lengkap</label>-->
                                         <input name="namalengkap" placeholder="Nama Lengkap..." class="form-username form-control" id="form-namalengkap" type="text">
                                     </div>
                                     <div class="form-group">
                                         <input name="namapanggilan" placeholder="Nama Panggilan..." class="form-top form-control" id="form-namapanggilan" type="text">
                                     </div>
                                     <div class="form-group">
+                                        <label for="jeniskelamin">Jenis Kelamin</label>
                                         <select name="jeniskelamin" class="form-top form-control" id="form-namapanggilan">
                                             <option value="1">Laki - Laki</option>
                                             <option value="2">Perempuan</option>
@@ -61,24 +63,73 @@
                                         <input name="tanggallahir" placeholder="Tanggal Lahir..." class="form-top form-control" id="form-tanggallahir" type="date">
                                     </div>
                                     <div class="form-group">
-                                        <input name="nik" onkeypress="return isNumberKey(event)" placeholder="Nomor Induk Kependudukan / Nomor di Kartu Keluarga..." class="form-top form-control" id="form-nik" type="number">
+                                        <input name="nik" onkeypress="return isNumberKey(event)" placeholder="Nomor Induk Kependudukan / Nomor di Kartu Keluarga..." class="form-top form-control" id="form-nik" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input name="nis" onkeypress="return isNumberKey(event)" placeholder="Nomor Induk Siswa / NIS..." class="form-top form-control" id="form-nis" type="number">
+                                        <input name="nis" onkeypress="return isNumberKey(event)" placeholder="Nomor Induk Siswa / NIS..." class="form-top form-control" id="form-nis" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input name="nisn" onkeypress="return isNumberKey(event)" placeholder="Nomor Induk Siswa Nasional / NISN..." class="form-top form-control" id="form-nisn" type="number">
+                                        <input name="nisn" onkeypress="return isNumberKey(event)" placeholder="Nomor Induk Siswa Nasional / NISN..." class="form-top form-control" id="form-nisn" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input name="beratbadan" onkeypress="return isNumberKey(event)" placeholder="Berat Badan - Satuan KG..." class="form-top form-control" id="form-beratbadan" type="number">
+                                        <input name="beratbadan" onkeypress="return isNumberKey(event)" placeholder="Berat Badan - Satuan KG..." class="form-top form-control" id="form-beratbadan" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input name="tinggibadan" onkeypress="return isNumberKey(event)" placeholder="Tinggi Badan - Satuan cm..." class="form-top form-control" id="form-tinggibadan" type="number">
+                                        <input name="tinggibadan" onkeypress="return isNumberKey(event)" placeholder="Tinggi Badan - Satuan cm..." class="form-top form-control" id="form-tinggibadan" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input name="jmlsaudarakandung" onkeypress="return isNumberKey(event)" placeholder="Jumlah Saudara Kandung..." class="form-top form-control" id="form-jmlsaudarakandung" type="number">
+                                        <input name="jmlsaudarakandung" onkeypress="return isNumberKey(event)" placeholder="Jumlah Saudara Kandung..." class="form-top form-control" id="form-jmlsaudarakandung" type="text">
                                     </div>
                                     <div class="form-group">
+                                        <input name="asalsekolah" placeholder="Asal Sekolah SD..." class="form-top form-control" id="form-asalsekolah" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="noijazah" placeholder="Nomor Seri Ijazah... contoh: DN-05 Dd/13 0058196" class="form-top form-control" id="form-noijazah" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="noskhun" placeholder="Nomor Seri SKHUN... contoh: DN-05 D.sd 0084168" class="form-top form-control" id="form-noskhun" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="nopesujianun" placeholder="Nomor Peserta Ujian UN SD..." class="form-top form-control" id="form-nopesujianun" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kelas">Kelas</label>
+                                        <select name="kelas" class="form-top form-control" id="form-kelas">
+                                            <option value="7">VII</option>
+                                            <option value="8">VIII</option>
+                                            <option value="9">IX</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="subkelas">Sub Kelas</label>
+                                        <select name="subkelas" class="form-top form-control" id="form-subkelas">
+                                            <?php
+                                            foreach ($subkelas as $value) {
+                                                echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="status">Status di Sekolah Ini</label>
+                                        <select name="status" class="form-top form-control" id="form-smt">
+                                            <option value="1">Siswa Baru</option>
+                                            <option value="2">Mutasi Masuk / Pindahan</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="smt">Semester</label>
+                                        <select name="smt" class="form-top form-control" id="form-smt">
+                                            <?php
+                                            echo isset($smt)?$smt:"";
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="awaltanggalmasuksekolah" placeholder="Awal Tanggal Masuk Sekolah..." class="form-top form-control" id="form-awaltanggalmasuksekolah" type="date">
+                                    </div>
+                                    <hr>
+                                    <div class="form-group" style="margin-top: 10%">
                                         <input name="namaayah" placeholder="Nama Ayah..." class="form-top form-control" id="form-namaayah" type="text">
                                     </div>
                                     <div class="form-group">
@@ -91,15 +142,38 @@
                                         <input name="pekerjaanayah" placeholder="Pekerjaan Ayah..." class="form-top form-control" id="form-pekerjaanayah" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input name="kategoripekerjaanayah" placeholder="Kategori Pekerjaan Ayah..." class="form-top form-control" id="form-kategoripekerjaanayah" type="text">
+                                        <label for="kategoripekerjaanayah">Kategori Pekerjaan Ayah</label>
+                                        <select name="kategoripekerjaanayah" class="form-top form-control" id="form-kategoripekerjaanayah">
+                                            <?php
+                                            foreach ($kategoripekerjaan as $value) {
+                                                echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                        
                                     </div>
                                     <div class="form-group">
-                                        <input name="pendidikanayah" placeholder="Pendidikan Ayah..." class="form-top form-control" id="form-pendidikanayah" type="text">
+                                        <label for="pendidikanayah">Pendidikan Terakhir Ayah</label>
+                                        <select name="pendidikanayah" class="form-top form-control" id="form-pendidikanayah">
+                                            <?php
+                                            foreach ($pendidikan as $value) {
+                                                echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                     <div class="form-group">
-                                        <input name="penghasilanayah" placeholder="Penghasilan Ayah..." class="form-top form-control" id="form-penghasilanayah" type="text">
+                                        <label for="penghasilanayah">Penghasilan Ayah</label>
+                                        <select name="penghasilanayah" class="form-top form-control" id="form-penghasilanayah">
+                                            <?php
+                                            foreach ($penghasilan as $value) {
+                                                echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
-                                    <div class="form-group">
+                                    <hr/>
+                                    <div class="form-group" style="margin-top: 10%">
                                         <input name="namaibu" placeholder="Nama Ibu..." class="form-top form-control" id="form-namaibu" type="text">
                                     </div>
                                     <div class="form-group">
@@ -112,15 +186,37 @@
                                         <input name="pekerjaanibu" placeholder="Pekerjaan Ibu..." class="form-top form-control" id="form-pekerjaanibu" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input name="kategoripekerjaanibu" placeholder="Kategori Pekerjaan Ibu..." class="form-top form-control" id="form-kategoripekerjaanibu" type="text">
+                                        <label for="kategoripekerjaanibu">Kategori Pekerjaan Ibu</label>
+                                        <select name="kategoripekerjaanibu" class="form-top form-control" id="form-kategoripekerjaanibu">
+                                            <?php
+                                            foreach ($kategoripekerjaan as $value) {
+                                                echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                     <div class="form-group">
-                                        <input name="pendidikanibu" placeholder="Pendidikan Ibu..." class="form-top form-control" id="form-pendidikanibu" type="text">
+                                        <label for="pendidikanibu">Pendidikan Terakhir Ibu</label>
+                                        <select name="pendidikanibu" class="form-top form-control" id="form-pendidikanibu">
+                                            <?php
+                                            foreach ($pendidikan as $value) {
+                                                echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                     <div class="form-group">
-                                        <input name="penghasilanibu" placeholder="Penghasilan Ibu..." class="form-top form-control" id="form-penghasilanibu" type="text">
+                                        <label for="penghasilanibu">Penghasilan Ibu</label>
+                                        <select name="penghasilanibu" class="form-top form-control" id="form-penghasilanibu">
+                                            <?php
+                                            foreach ($penghasilan as $value) {
+                                                echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
-                                    <div class="form-group">
+                                    <hr/>
+                                    <div class="form-group" style="margin-top: 10%">
                                         <input name="namawali" placeholder="Nama Wali..." class="form-top form-control" id="form-namawali" type="text">
                                     </div>
                                     <div class="form-group">
@@ -133,42 +229,39 @@
                                         <input name="pekerjaanwali" placeholder="Pekerjaan Wali..." class="form-top form-control" id="form-pekerjaanwali" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input name="kategoripekerjaanwali" placeholder="Kategori Pekerjaan Wali..." class="form-top form-control" id="form-kategoripekerjaanwali" type="text">
+                                        <label for="kategoripekerjaanwali">Kategori Pekerjaan Wali</label>
+                                        <select name="kategoripekerjaanwali" class="form-top form-control" id="form-kategoripekerjaanwali">
+                                            <?php
+                                            foreach ($kategoripekerjaan as $value) {
+                                                echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                     <div class="form-group">
-                                        <input name="pendidikanwali" placeholder="Pendidikan Wali..." class="form-top form-control" id="form-pendidikanwali" type="text">
+                                        <label for="pendidikanwali">Pendidikan Terakhir Wali</label>
+                                        <select name="pendidikanwali" class="form-top form-control" id="form-pendidikanwali">
+                                            <?php
+                                            foreach ($pendidikan as $value) {
+                                                echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                     <div class="form-group">
-                                        <input name="penghasilanwali" placeholder="Penghasilan Wali..." class="form-top form-control" id="form-penghasilanwali" type="text">
+                                        <label for="penghasilanwali">Penghasilan Wali</label>
+                                        <select name="penghasilanwali" class="form-top form-control" id="form-penghasilanwali">
+                                            <?php
+                                            foreach ($penghasilan as $value) {
+                                                echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
+                                    
                                     <div class="form-group">
-                                        <input name="asalsekolah" placeholder="Asal Sekolah SD..." class="form-top form-control" id="form-asalsekolah" type="text">
+                                        <button name="submitsiswa" type="submit" class="btn">Masukkan!</button>
                                     </div>
-                                    <div class="form-group">
-                                        <input name="noijazah" placeholder="Nomor Seri Ijazah..." class="form-top form-control" id="form-noijazah" type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <input name="noskhun" placeholder="Nomor Seri SKHUN..." class="form-top form-control" id="form-noskhun" type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <input name="nopesujianun" placeholder="Nomor Peserta Ujian UN SD..." class="form-top form-control" id="form-nopesujianun" type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <input name="kelas" placeholder="Kelas VII, VIII, IX..." class="form-top form-control" id="form-kelas" type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <input name="subkelas" placeholder="Sub Kelas A / B / C / D / E / F / G / H..." class="form-top form-control" id="form-subkelas" type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <input name="status" placeholder="Status di Sekolah Ini..." class="form-top form-control" id="form-status" type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <input name="smt" onkeypress="return isNumberKey(event)" placeholder="Semester..." class="form-top form-control" id="form-smt" type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <input name="awaltanggalmasuksekolah" placeholder="Awal Tanggal Masuk Sekolah..." class="form-top form-control" id="form-awaltanggalmasuksekolah" type="date">
-                                    </div>
-                                    <button name="submitsiswa1" type="submit" class="btn">Masukkan!</button>
                                 </form>
                             </div>
                         </div>

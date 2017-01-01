@@ -5,6 +5,7 @@
         <group>
             <file>file:/opt/lampp/htdocs/application/views/input_siswa/inputsiswa.php</file>
             <file>file:/opt/lampp/htdocs/application/controllers/Input.php</file>
+            <file>file:/opt/lampp/htdocs/application/views/input_siswa/complete.php</file>
         </group>
     </open-files>
 </project-private>
