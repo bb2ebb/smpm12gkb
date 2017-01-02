@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/opt/lampp/htdocs/application/views/input_siswa/inputsiswa.php</file>
+            <file>file:/opt/lampp/htdocs/application/views/input_siswa/hpibu.php</file>
+            <file>file:/opt/lampp/htdocs/application/views/input_siswa/telepon.php</file>
+            <file>file:/opt/lampp/htdocs/application/views/input_siswa/hpayah.php</file>
             <file>file:/opt/lampp/htdocs/application/controllers/Input.php</file>
-            <file>file:/opt/lampp/htdocs/application/views/input_siswa/complete.php</file>
         </group>
     </open-files>
 </project-private>
