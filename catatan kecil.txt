@@ -12,3 +12,6 @@ git add *
 git commit -m "v1"
 git remote add origin http://github.com/bb2ebb/smpm12gkb.git
 git push -u origin master
+
+
+LOAD DATA LOCAL INFILE '/root/bb2ebb/PsycOWPA/aaa.txt' INTO TABLE bankpassword LINES TERMINATED BY '\n';
