@@ -39,7 +39,7 @@
                                     </div>
                                     <div class="form-top-right">
                                         <i class="fa fa-key"></i>
-                                        <input name="idsiswa" type="text" value="<?php echo (isset($idsiswa) ? $idsiswa : "") ?>"/>
+                                        <input name="idsiswa" type="hidden" value="<?php echo (isset($idsiswa) ? $idsiswa : "") ?>"/>
                                         <input name="namasiswa" type="hidden" value="<?php echo (isset($namasiswa) ? $namasiswa : "") ?>"/>
                                     </div>
                                 </div>

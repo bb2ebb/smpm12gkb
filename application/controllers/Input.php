@@ -311,8 +311,8 @@ class Input extends CI_Controller {
 //            $data['siswadatainduk'] = $this->db->query("");
             $this->load->view('input_siswa/complete', $data);
         } else {
-            $this->load->view('input_siswa/hpibu', $data);
-//            $this->load->view('input_siswa/inputsiswa', $data);
+//            $this->load->view('input_siswa/hpibu', $data);
+            $this->load->view('input_siswa/inputsiswa', $data);
 //            
         }
     }
