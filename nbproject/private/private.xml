@@ -5,11 +5,9 @@
         <group>
             <file>file:/D:/xampp/htdocs/application/controllers/Input.php</file>
             <file>file:/D:/xampp/htdocs/application/controllers/Test.php</file>
-            <file>file:/D:/xampp/htdocs/application/views/dashboardsiswa/dashborsiswa.php</file>
-            <file>file:/D:/xampp/htdocs/application/views/welcome_message.php</file>
             <file>file:/D:/xampp/htdocs/application/views/input_siswa/inputsiswa.php</file>
             <file>file:/D:/xampp/htdocs/application/controllers/Dashboard.php</file>
-            <file>file:/D:/xampp/htdocs/application/views/input_siswa/hpibu.php</file>
+            <file>file:/D:/xampp/htdocs/application/views/siswadashbor/dashborsiswa.php</file>
         </group>
     </open-files>
 </project-private>

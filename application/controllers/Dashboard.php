@@ -3,8 +3,8 @@
 class Dashboard extends CI_Controller {
 
     public function index() {
-        $sql = "SELECT id, namalengkap, namapanggilan, 
-IF(jeniskelamin=1,'Laki-Laki','Perempuan') AS jeniskelamin, 
+        $sql = "SELECT id, namalengkap, namapanggilan, nourut_sesuaijurnal,
+IF(jeniskelamin=1,'L','P') AS jeniskelamin, 
 tempatlahir,
 CONCAT(DATE_FORMAT(tanggallahir, '%d'),' ',(SELECT ind FROM dictkalender WHERE eng=DATE_FORMAT(tanggallahir, '%M')),' ',DATE_FORMAT(tanggallahir, '%Y')) AS tanggallahir,
 nik,nis,nisn,tinggibadan,
@@ -39,8 +39,9 @@ pekerjaanwali,
 ) FROM siswanotelp WHERE siswanotelp.fkid=siswadatainduk.id) AS notelp,
 (SELECT GROUP_CONCAT(nomor SEPARATOR ', ') FROM siswanohpayah WHERE fkid=siswadatainduk.id) AS nohpayah,
 (SELECT GROUP_CONCAT(nomor SEPARATOR ', ') FROM siswanohpibu WHERE fkid=siswadatainduk.id) AS nohpibu,
-dateinput FROM siswadatainduk";
-        $data['tabel']=$this->db->query($sql);
+dateinput FROM siswadatainduk ORDER BY kelas,subkelas,nourut_sesuaijurnal ASC";
+        $data['tabel']=$this->db->query($sql)->result();
+        $this->load->view('siswadashbor/dashborsiswa',$data);
     }
 
 }
