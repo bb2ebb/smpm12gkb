@@ -5,11 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Complete - <?php echo isset($namasiswa) ? $namasiswa : ""; ?></title>
-        <link rel="stylesheet" href="./assets/0global/css/bootstrap.css">
-        <link rel="stylesheet" href="./assets/0global/css/jquery-ui.css">
-        <link href="./assets/1hmscr/css/css.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="./assets/1hmscr/css/animate.css">	
-        <link rel="stylesheet" href="./assets/1hmscr/css/style.css">
+        <link rel="stylesheet" href="../assets/0global/css/bootstrap.css">
+        <link rel="stylesheet" href="../assets/0global/css/jquery-ui.css">
+        <link href="../assets/1hmscr/css/css.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../assets/1hmscr/css/animate.css">	
+        <link rel="stylesheet" href="../assets/1hmscr/css/style.css">
         <style  type="text/css">
             table tr td:nth-child(1){
                 width: 220px !important;
@@ -30,7 +30,7 @@
         </div>
         <header>
             <div class="text-center head-title">
-                <img src="./assets/1hmscr/img/logo.png" alt="">
+                <img src="../assets/1hmscr/img/logo.png" alt="">
             </div>
         </header>
 
@@ -288,10 +288,10 @@
                 <p class="copyright">dibuat oleh <b>bb2ebb</b> © 2016. All Rights Reserved.</p>
             </div>
         </footer>
-        <script src="./assets/1hmscr/js/jquery-1.js"></script>
-        <script src="./assets/0global/js/jquery-ui.js"></script>
-        <script src="./assets/0global/js/bootstrap.js"></script>
-        <script src="./assets/1hmscr/js/wow.js"></script>
+        <script src="../assets/1hmscr/js/jquery-1.js"></script>
+        <script src="../assets/0global/js/jquery-ui.js"></script>
+        <script src="../assets/0global/js/bootstrap.js"></script>
+        <script src="../assets/1hmscr/js/wow.js"></script>
 
         <script type="text/javascript">
             /*preloader*/
