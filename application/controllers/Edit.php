@@ -8,7 +8,11 @@ class Edit extends CI_Controller {
             $id = $this->input->post('id');
             $data['datasiswa'] = $this->db->get_where('siswadatainduk', ['id'=>$id])->result();
             $data['subkelas'] = $this->db->get('subkelas')->result();
-            $data['statussiswa'] = $this->db->get('subkelas')->result();
+            $data['kategoripekerjaan'] = $this->db->get('kategoripekerjaan')->result();
+            $data['pendidikan'] = $this->db->get('pendidikan')->result();
+            $data['penghasilan'] = $this->db->get('penghasilan')->result();
+            $data['statussiswa'] = $this->db->get('siswastatus')->result();
+            $data['smt'] = (date('m') >= 1 && date('m') < 6) ? '<option value="2">2</option><option value="4">4</option><option value="6">6</option>' : '<option value="1">1</option><option value="3">3</option><option value="5">5</option>';
             $this->load->view('edit_siswa/inputsiswa', $data);
         }
         elseif (isset($_POST['wsw'])) {

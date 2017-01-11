@@ -123,8 +123,6 @@
                                                 else echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
                                             }
                                             ?>
-                                            <option value="1">Siswa Baru</option>
-                                            <option value="2">Mutasi Masuk / Pindahan</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -136,27 +134,29 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <input name="awaltanggalmasuksekolah" placeholder="Awal Tanggal Masuk Sekolah..." class="form-top form-control" id="form-awaltanggalmasuksekolah" type="date">
+                                        <input value="<?php $a = explode("-", $datasiswa[0]->tanggalmasuksekolah);echo (is_null($datasiswa[0]->tanggalmasuksekolah) || $datasiswa[0]->tanggalmasuksekolah==='')?'':$a[1].'/'.$a[2].'/'.$a[0]  ?>" name="awaltanggalmasuksekolah" placeholder="Awal Tanggal Masuk Sekolah..." class="form-top form-control" id="form-awaltanggalmasuksekolah" type="date">
                                     </div>
                                     <hr>
                                     <div class="form-group" style="margin-top: 10%">
-                                        <input name="namaayah" placeholder="Nama Ayah..." class="form-top form-control" id="form-namaayah" type="text">
+                                        <input name="namaayah" value="<?php echo $datasiswa[0]->namaayah ?>" placeholder="Nama Ayah..." class="form-top form-control" id="form-namaayah" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input name="tempatlahirayah" placeholder="Tempat Lahir Ayah..." class="form-top form-control" id="form-tempatlahirayah" type="text">
+                                        <input name="tempatlahirayah" value="<?php echo $datasiswa[0]->tempatlahirayah ?>" placeholder="Tempat Lahir Ayah..." class="form-top form-control" id="form-tempatlahirayah" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input name="tanggallahirayah" placeholder="Tanggal Lahir Ayah..." class="form-top form-control" id="form-tanggallahirayah" type="date">
+                                        <input value="<?php $a = explode("-", $datasiswa[0]->tanggallahirayah);echo (is_null($datasiswa[0]->tanggallahirayah) || $datasiswa[0]->tanggallahirayah==='')?'':$a[1].'/'.$a[2].'/'.$a[0]  ?>" name="tanggallahirayah" placeholder="Tanggal Lahir Ayah..." class="form-top form-control" id="form-tanggallahirayah" type="date">
                                     </div>
                                     <div class="form-group">
-                                        <input name="pekerjaanayah" placeholder="Pekerjaan Ayah..." class="form-top form-control" id="form-pekerjaanayah" type="text">
+                                        <input name="pekerjaanayah" value="<?php echo $datasiswa[0]->pekerjaanayah ?>" placeholder="Pekerjaan Ayah..." class="form-top form-control" id="form-pekerjaanayah" type="text">
                                     </div>
                                     <div class="form-group">
                                         <label for="kategoripekerjaanayah">Kategori Pekerjaan Ayah</label>
                                         <select name="kategoripekerjaanayah" class="form-top form-control" id="form-kategoripekerjaanayah">
                                             <?php
                                             foreach ($kategoripekerjaan as $value) {
-                                                echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
+                                                if ($value->id === $datasiswa[0]->kategoripekerjaanayah) 
+                                                    echo '<option value="'.$value->id.'" selected>'.$value->uraian.'</option>';
+                                                else echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
                                             }
                                             ?>
                                         </select>
@@ -167,7 +167,9 @@
                                         <select name="pendidikanayah" class="form-top form-control" id="form-pendidikanayah">
                                             <?php
                                             foreach ($pendidikan as $value) {
-                                                echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
+                                                if ($value->id === $datasiswa[0]->pendidikanayah) 
+                                                    echo '<option value="'.$value->id.'" selected>'.$value->uraian.'</option>';
+                                                else echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
                                             }
                                             ?>
                                         </select>
@@ -177,40 +179,49 @@
                                         <select name="penghasilanayah" class="form-top form-control" id="form-penghasilanayah">
                                             <?php
                                             foreach ($penghasilan as $value) {
-                                                echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
+                                                if ($value->id === $datasiswa[0]->penghasilanayah) 
+                                                    echo '<option value="'.$value->id.'" selected>'.$value->uraian.'</option>';
+                                                else echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
                                             }
                                             ?>
                                         </select>
                                     </div>
                                     <hr/>
+                                    
+                                    
                                     <div class="form-group" style="margin-top: 10%">
-                                        <input name="namaibu" placeholder="Nama Ibu..." class="form-top form-control" id="form-namaibu" type="text">
+                                        <input name="namaibu" value="<?php echo $datasiswa[0]->namaibu ?>" placeholder="Nama Ibu..." class="form-top form-control" id="form-namaibu" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input name="tempatlahiribu" placeholder="Tempat Lahir Ibu..." class="form-top form-control" id="form-tempatlahiribu" type="text">
+                                        <input name="tempatlahiribu" value="<?php echo $datasiswa[0]->tempatlahiribu ?>" placeholder="Tempat Lahir Ibu..." class="form-top form-control" id="form-tempatlahiribu" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input name="tanggallahiribu" placeholder="Tanggal Lahir Ibu..." class="form-top form-control" id="form-tanggallahiribu" type="date">
+                                        <input value="<?php $a = explode("-", $datasiswa[0]->tanggallahiribu);echo (is_null($datasiswa[0]->tanggallahiribu) || $datasiswa[0]->tanggallahiribu==='')?'':$a[1].'/'.$a[2].'/'.$a[0]  ?>" name="tanggallahiribu" placeholder="Tanggal Lahir Ibu..." class="form-top form-control" id="form-tanggallahiribu" type="date">
                                     </div>
                                     <div class="form-group">
-                                        <input name="pekerjaanibu" placeholder="Pekerjaan Ibu..." class="form-top form-control" id="form-pekerjaanibu" type="text">
+                                        <input name="pekerjaanibu" value="<?php echo $datasiswa[0]->pekerjaanibu ?>" placeholder="Pekerjaan Ibu..." class="form-top form-control" id="form-pekerjaanibu" type="text">
                                     </div>
                                     <div class="form-group">
                                         <label for="kategoripekerjaanibu">Kategori Pekerjaan Ibu</label>
                                         <select name="kategoripekerjaanibu" class="form-top form-control" id="form-kategoripekerjaanibu">
                                             <?php
                                             foreach ($kategoripekerjaan as $value) {
-                                                echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
+                                                if ($value->id === $datasiswa[0]->kategoripekerjaanibu) 
+                                                    echo '<option value="'.$value->id.'" selected>'.$value->uraian.'</option>';
+                                                else echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
                                             }
                                             ?>
                                         </select>
+                                        
                                     </div>
                                     <div class="form-group">
                                         <label for="pendidikanibu">Pendidikan Terakhir Ibu</label>
                                         <select name="pendidikanibu" class="form-top form-control" id="form-pendidikanibu">
                                             <?php
                                             foreach ($pendidikan as $value) {
-                                                echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
+                                                if ($value->id === $datasiswa[0]->pendidikanibu) 
+                                                    echo '<option value="'.$value->id.'" selected>'.$value->uraian.'</option>';
+                                                else echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
                                             }
                                             ?>
                                         </select>
@@ -220,40 +231,49 @@
                                         <select name="penghasilanibu" class="form-top form-control" id="form-penghasilanibu">
                                             <?php
                                             foreach ($penghasilan as $value) {
-                                                echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
+                                                if ($value->id === $datasiswa[0]->penghasilanibu) 
+                                                    echo '<option value="'.$value->id.'" selected>'.$value->uraian.'</option>';
+                                                else echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
                                             }
                                             ?>
                                         </select>
                                     </div>
                                     <hr/>
+                                    
+                                    
                                     <div class="form-group" style="margin-top: 10%">
-                                        <input name="namawali" placeholder="Nama Wali..." class="form-top form-control" id="form-namawali" type="text">
+                                        <input name="namawali" value="<?php echo $datasiswa[0]->namawali ?>" placeholder="Nama Wali..." class="form-top form-control" id="form-namawali" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input name="tempatlahirwali" placeholder="Tempat Lahir Wali..." class="form-top form-control" id="form-tempatlahirwali" type="text">
+                                        <input name="tempatlahirwali" value="<?php echo $datasiswa[0]->tempatlahirwali ?>" placeholder="Tempat Lahir Wali..." class="form-top form-control" id="form-tempatlahirwali" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input name="tanggallahirwali" placeholder="Tanggal Lahir Wali..." class="form-top form-control" id="form-tanggallahirwali" type="date">
+                                        <input value="<?php $a = explode("-", $datasiswa[0]->tanggallahirwali);echo (is_null($datasiswa[0]->tanggallahirwali) || $datasiswa[0]->tanggallahirwali==='')?'':$a[1].'/'.$a[2].'/'.$a[0]  ?>" name="tanggallahirwali" placeholder="Tanggal Lahir Wali..." class="form-top form-control" id="form-tanggallahirwali" type="date">
                                     </div>
                                     <div class="form-group">
-                                        <input name="pekerjaanwali" placeholder="Pekerjaan Wali..." class="form-top form-control" id="form-pekerjaanwali" type="text">
+                                        <input name="pekerjaanwali" value="<?php echo $datasiswa[0]->pekerjaanwali ?>" placeholder="Pekerjaan Wali..." class="form-top form-control" id="form-pekerjaanwali" type="text">
                                     </div>
                                     <div class="form-group">
                                         <label for="kategoripekerjaanwali">Kategori Pekerjaan Wali</label>
                                         <select name="kategoripekerjaanwali" class="form-top form-control" id="form-kategoripekerjaanwali">
                                             <?php
                                             foreach ($kategoripekerjaan as $value) {
-                                                echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
+                                                if ($value->id === $datasiswa[0]->kategoripekerjaanwali) 
+                                                    echo '<option value="'.$value->id.'" selected>'.$value->uraian.'</option>';
+                                                else echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
                                             }
                                             ?>
                                         </select>
+                                        
                                     </div>
                                     <div class="form-group">
                                         <label for="pendidikanwali">Pendidikan Terakhir Wali</label>
                                         <select name="pendidikanwali" class="form-top form-control" id="form-pendidikanwali">
                                             <?php
                                             foreach ($pendidikan as $value) {
-                                                echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
+                                                if ($value->id === $datasiswa[0]->pendidikanwali) 
+                                                    echo '<option value="'.$value->id.'" selected>'.$value->uraian.'</option>';
+                                                else echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
                                             }
                                             ?>
                                         </select>
@@ -263,14 +283,18 @@
                                         <select name="penghasilanwali" class="form-top form-control" id="form-penghasilanwali">
                                             <?php
                                             foreach ($penghasilan as $value) {
-                                                echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
+                                                if ($value->id === $datasiswa[0]->penghasilanwali) 
+                                                    echo '<option value="'.$value->id.'" selected>'.$value->uraian.'</option>';
+                                                else echo '<option value="'.$value->id.'">'.$value->uraian.'</option>';
                                             }
                                             ?>
                                         </select>
                                     </div>
+                                    <hr/>
+                                    
                                     
                                     <div class="form-group">
-                                        <button name="submitsiswa" type="submit" class="btn">Masukkan!</button>
+                                        <button name="editsiswa" type="submit" class="btn">Edit!</button>
                                     </div>
                                 </form>
                             </div>
