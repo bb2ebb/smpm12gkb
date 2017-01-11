@@ -26,11 +26,11 @@
         </header>
 
 
-        <form role="form" action="input" method="post" class="login-form">
-            <div class="top-content">
-                <div class="inner-bg">
-                    <div class="container">
-                        <div class="row">
+        <div class="top-content">
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <form role="form" action="edit" method="post" class="login-form">
                             <div class="col-sm-6 col-sm-offset-3 form-box">
                                 <div class="form-top">
                                     <div class="form-top-left">
@@ -55,11 +55,23 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
+                        <?php
+                        foreach ($nohpibu as $value) {
+                            echo '<div class="col-sm-6 col-sm-offset-3 form-box">
+                                    <div class="form-bottom">
+                                        <div class="form-group">
+                                            <input readonly="true" value="'.$value->nomor.'" class="form-username form-control" id="form-notelp" type="text">
+                                        </div>
+                                        <button onclick="post(\'edit\',{deletehpibusiswa:\'\',id:\'' . $value->id . '\',idsiswa:\'' . (isset($idsiswa) ? $idsiswa : "") . '\',namasiswa:\'' . (isset($namasiswa) ? $namasiswa : "") . '\'})" class="btn">hapus</button>
+                                    </div>
+                                </div>';
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
         <footer>
             <div class="text-center">
                 <p class="copyright">dibuat oleh <b>bb2ebb</b> © 2016. All Rights Reserved.</p>
@@ -92,6 +104,28 @@
                 if ((charCode < 48 || charCode > 57))
                     return false;
                 return true;
+            }
+        </script>
+        <script>
+            function post(path, params, method) {
+                method = method || "post";
+                var form = document.createElement("form");
+                form.setAttribute("method", method);
+                form.setAttribute("action", path);
+
+                for (var key in params) {
+                    if (params.hasOwnProperty(key)) {
+                        var hiddenField = document.createElement("input");
+                        hiddenField.setAttribute("type", "hidden");
+                        hiddenField.setAttribute("name", key);
+                        hiddenField.setAttribute("value", params[key]);
+
+                        form.appendChild(hiddenField);
+                    }
+                }
+
+                document.body.appendChild(form);
+                form.submit();
             }
         </script>
 

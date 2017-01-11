@@ -25,11 +25,11 @@
             </div>
         </header>
 
-        <form role="form" action="input" method="post" class="login-form">
-            <div class="top-content">
-                <div class="inner-bg">
-                    <div class="container">
-                        <div class="row">
+        <div class="top-content">
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <form role="form" action="edit" method="post" class="login-form">
                             <div class="col-sm-6 col-sm-offset-3 form-box">
                                 <div class="form-top">
                                     <div class="form-top-left">
@@ -89,17 +89,34 @@
                                         <input name="kodepos" placeholder="Kode Pos..." class="form-top form-control" id="form-kodepos" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <button name="submitalamatsiswa" type="submit" class="btn"><?php echo isset($_POST['submitalamatsiswa'])?"Tambahkan Lagi!":"Tambahkan!" ?></button>
+                                        <button name="submitalamatsiswa" type="submit" class="btn"><?php echo isset($_POST['submitalamatsiswa']) ? "Tambahkan Lagi!" : "Tambahkan!" ?></button>
                                         <button name="selanjutnyaalamatsiswa" type="submit" class="btn">Skip!</button>
                                     </div>
-
                                 </div>
                             </div>
-                        </div>
+                        </form>
+                        <?php
+                        foreach ($alamat as $value) {
+                            echo '<div class="col-sm-6 col-sm-offset-3 form-box">
+                                        <div class="form-bottom">
+                                            <div class="form-group">
+                                                <textarea style="resize: none" readonly="true" placeholder="Alamat..." class="form-top form-control" rows="6" id="form-alamat">' . $value->alamat . '&#13;Kelurahan/Desa: ' . $value->kelurahan . ' | Dusun: ' . $value->dusun . ' | RT: ' . $value->rt . ' | RW: ' . $value->rw . '&#10;Kecamatan: ' . $value->kecamatan . ' | Kabupaten: ' . $value->kabupaten . ' | Provinsi: ' . $value->provinsi . ' - ' . $value->kodepos . '</textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <button onclick="post(\'edit\',{deletealamatsiswa:\'\',id:\'' . $value->id . '\',idsiswa:\'' . (isset($idsiswa) ? $idsiswa : "") . '\'})" class="btn">Hapus!</button>
+                                            </div>
+                                        </div>
+                                    </div>';
+                        }
+                        ?>
+
+
+
+
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
         <footer>
             <div class="text-center">
                 <p class="copyright">dibuat oleh <b>bb2ebb</b> © 2016. All Rights Reserved.</p>
@@ -110,23 +127,34 @@
         <script src="./assets/0global/js/jquery-ui.js"></script>
         <script src="./assets/0global/js/bootstrap.js"></script>
         <script src="./assets/1hmscr/js/wow.js"></script>
+        <script>
+            function post(path, params, method) {
+                method = method || "post";
+                var form = document.createElement("form");
+                form.setAttribute("method", method);
+                form.setAttribute("action", path);
 
-        <script type="text/javascript">
-            /*preloader*/
-            $(window).load(function () {
-                $('.status').fadeOut();
-                $('.preloader').delay(350).fadeOut('slow');
-            });
-        </script>
-        <script type="text/javascript">
-            new WOW().init();
+                for (var key in params) {
+                    if (params.hasOwnProperty(key)) {
+                        var hiddenField = document.createElement("input");
+                        hiddenField.setAttribute("type", "hidden");
+                        hiddenField.setAttribute("name", key);
+                        hiddenField.setAttribute("value", params[key]);
+
+                        form.appendChild(hiddenField);
+                    }
+                }
+
+                document.body.appendChild(form);
+                form.submit();
+            }
         </script>
         <script type="text/javascript">
             $(function () {
                 $("#form-provinsi").on("change", function () {
                     $.ajaxSetup({
                         type: "POST",
-                        url: "<?php echo base_url('input/ajaxkabupaten') ?>",
+                        url: "<?php echo base_url('edit/ajaxkabupaten') ?>",
                         cache: false
                     });
                     var value = $(this).val();
@@ -141,15 +169,15 @@
                                 $("#form-kabupaten").html(respond);
                             }
                         })
-                    } else{
+                    } else {
                         var kab = '<option value="0">-- Pilih Kabupaten --</option>';
                         var kec = '<option value="0">-- Pilih Kecamatan --</option>';
                         $("#form-kabupaten").html(kab);
                         $("#form-kecamatan").html(kec);
                     }
                 });
-                
-                
+
+
                 $("#form-kabupaten").on("change", function () {
                     $.ajaxSetup({
                         type: "POST",
@@ -164,7 +192,7 @@
                                 $("#form-kecamatan").html(respond);
                             }
                         })
-                    } else{
+                    } else {
                         var kec = '<option value="0">-- Pilih Kecamatan --</option>';
                         $("#form-kecamatan").html(kec);
                     }

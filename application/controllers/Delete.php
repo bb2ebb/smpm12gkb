@@ -1,4 +1,5 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Delete extends CI_Controller {
@@ -7,10 +8,11 @@ class Delete extends CI_Controller {
         if (isset($_POST['deletesiswa'])) {
             $id = $this->input->post('id');
             $url = $this->input->post('url');
-            $this->db->delete('siswadatainduk', ['id'=>  $id]);
+            $this->db->delete('siswadatainduk', ['id' => $id]);
             redirect($url);
-        }  else {
+        } else {
             redirect('dashboard');
         }
     }
+
 }

@@ -41,7 +41,7 @@
                             <td>' . $value->namapanggilan . '</td>
                             <td>' . $value->jeniskelamin . '</td>
                             <td>' . $value->tempatlahir . '</td>
-                            <td>' . $value->tanggallahir . '</td>
+                            <td>' . $value->nohpibu . '</td>
                             </tr>';
                 }
                 ?>

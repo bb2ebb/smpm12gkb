@@ -38,11 +38,11 @@
                                 </div>
                                 <div class="form-top-right">
                                     <i class="fa fa-key"></i>
-                                    <input type="hidden" name="id" value="<?php echo $datasiswa[0]->id ?>">
                                 </div>
                             </div>
                             <div class="form-bottom">
-                                <form role="form" action="input" method="post" class="login-form">
+                                <form role="form" action="edit" method="post" class="login-form">
+                                    <input type="hidden" name="idsiswa" value="<?php echo $datasiswa[0]->id ?>">
                                     <div class="form-group">
                                         <!--<label for="namalengkap">Nama Lengkap</label>-->
                                         <input name="namalengkap" value="<?php echo $datasiswa[0]->namalengkap ?>" placeholder="Nama Lengkap..." class="form-username form-control" id="form-namalengkap" type="text">
@@ -294,7 +294,8 @@
                                     
                                     
                                     <div class="form-group">
-                                        <button name="editsiswa" type="submit" class="btn">Edit!</button>
+                                        <button name="submiteditsiswa" type="submit" class="btn">Edit!</button>
+                                        <button name="submitskipeditsiswa" type="submit" class="btn">Skip!</button>
                                     </div>
                                 </form>
                             </div>
