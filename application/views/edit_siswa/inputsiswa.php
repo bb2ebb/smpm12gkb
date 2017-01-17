@@ -61,7 +61,7 @@
                                         <input name="tempatlahir" value="<?php echo $datasiswa[0]->tempatlahir ?>" placeholder="Tempat Lahir..." class="form-top form-control" id="form-tempatlahir" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input name="tanggallahir" value="<?php $a = explode("-", $datasiswa[0]->tanggallahir);echo $a[1].'/'.$a[2].'/'.$a[0]  ?>" placeholder="Tanggal Lahir..." class="form-top form-control" id="form-tanggallahir" type="date">
+                                        <input name="tanggallahir" value="<?php $a = explode("-", $datasiswa[0]->tanggallahir);echo $a[1].'/'.$a[2].'/'.$a[0]  ?>" placeholder="Tanggal Lahir..." class="form-top form-control" id="form-tanggallahir" type="text">
                                     </div>
                                     <div class="form-group">
                                         <input name="nik" value="<?php echo $datasiswa[0]->nik ?>" onkeypress="return isNumberKey(event)" placeholder="Nomor Induk Kependudukan / Nomor di Kartu Keluarga..." class="form-top form-control" id="form-nik" type="text">
@@ -134,7 +134,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <input value="<?php $a = explode("-", $datasiswa[0]->tanggalmasuksekolah);echo (is_null($datasiswa[0]->tanggalmasuksekolah) || $datasiswa[0]->tanggalmasuksekolah==='')?'':$a[1].'/'.$a[2].'/'.$a[0]  ?>" name="awaltanggalmasuksekolah" placeholder="Awal Tanggal Masuk Sekolah..." class="form-top form-control" id="form-awaltanggalmasuksekolah" type="date">
+                                        <input value="<?php $a = explode("-", $datasiswa[0]->tanggalmasuksekolah);echo (is_null($datasiswa[0]->tanggalmasuksekolah) || $datasiswa[0]->tanggalmasuksekolah==='')?'':$a[1].'/'.$a[2].'/'.$a[0]  ?>" name="awaltanggalmasuksekolah" placeholder="Awal Tanggal Masuk Sekolah..." class="form-top form-control" id="form-awaltanggalmasuksekolah" type="text">
                                     </div>
                                     <hr>
                                     <div class="form-group" style="margin-top: 10%">
@@ -144,7 +144,7 @@
                                         <input name="tempatlahirayah" value="<?php echo $datasiswa[0]->tempatlahirayah ?>" placeholder="Tempat Lahir Ayah..." class="form-top form-control" id="form-tempatlahirayah" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input value="<?php $a = explode("-", $datasiswa[0]->tanggallahirayah);echo (is_null($datasiswa[0]->tanggallahirayah) || $datasiswa[0]->tanggallahirayah==='')?'':$a[1].'/'.$a[2].'/'.$a[0]  ?>" name="tanggallahirayah" placeholder="Tanggal Lahir Ayah..." class="form-top form-control" id="form-tanggallahirayah" type="date">
+                                        <input value="<?php $a = explode("-", $datasiswa[0]->tanggallahirayah);echo (is_null($datasiswa[0]->tanggallahirayah) || $datasiswa[0]->tanggallahirayah==='')?'':$a[1].'/'.$a[2].'/'.$a[0]  ?>" name="tanggallahirayah" placeholder="Tanggal Lahir Ayah..." class="form-top form-control" id="form-tanggallahirayah" type="text">
                                     </div>
                                     <div class="form-group">
                                         <input name="pekerjaanayah" value="<?php echo $datasiswa[0]->pekerjaanayah ?>" placeholder="Pekerjaan Ayah..." class="form-top form-control" id="form-pekerjaanayah" type="text">
@@ -196,7 +196,7 @@
                                         <input name="tempatlahiribu" value="<?php echo $datasiswa[0]->tempatlahiribu ?>" placeholder="Tempat Lahir Ibu..." class="form-top form-control" id="form-tempatlahiribu" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input value="<?php $a = explode("-", $datasiswa[0]->tanggallahiribu);echo (is_null($datasiswa[0]->tanggallahiribu) || $datasiswa[0]->tanggallahiribu==='')?'':$a[1].'/'.$a[2].'/'.$a[0]  ?>" name="tanggallahiribu" placeholder="Tanggal Lahir Ibu..." class="form-top form-control" id="form-tanggallahiribu" type="date">
+                                        <input value="<?php $a = explode("-", $datasiswa[0]->tanggallahiribu);echo (is_null($datasiswa[0]->tanggallahiribu) || $datasiswa[0]->tanggallahiribu==='')?'':$a[1].'/'.$a[2].'/'.$a[0]  ?>" name="tanggallahiribu" placeholder="Tanggal Lahir Ibu..." class="form-top form-control" id="form-tanggallahiribu" type="text">
                                     </div>
                                     <div class="form-group">
                                         <input name="pekerjaanibu" value="<?php echo $datasiswa[0]->pekerjaanibu ?>" placeholder="Pekerjaan Ibu..." class="form-top form-control" id="form-pekerjaanibu" type="text">
@@ -248,7 +248,7 @@
                                         <input name="tempatlahirwali" value="<?php echo $datasiswa[0]->tempatlahirwali ?>" placeholder="Tempat Lahir Wali..." class="form-top form-control" id="form-tempatlahirwali" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input value="<?php $a = explode("-", $datasiswa[0]->tanggallahirwali);echo (is_null($datasiswa[0]->tanggallahirwali) || $datasiswa[0]->tanggallahirwali==='')?'':$a[1].'/'.$a[2].'/'.$a[0]  ?>" name="tanggallahirwali" placeholder="Tanggal Lahir Wali..." class="form-top form-control" id="form-tanggallahirwali" type="date">
+                                        <input value="<?php $a = explode("-", $datasiswa[0]->tanggallahirwali);echo (is_null($datasiswa[0]->tanggallahirwali) || $datasiswa[0]->tanggallahirwali==='')?'':$a[1].'/'.$a[2].'/'.$a[0]  ?>" name="tanggallahirwali" placeholder="Tanggal Lahir Wali..." class="form-top form-control" id="form-tanggallahirwali" type="text">
                                     </div>
                                     <div class="form-group">
                                         <input name="pekerjaanwali" value="<?php echo $datasiswa[0]->pekerjaanwali ?>" placeholder="Pekerjaan Wali..." class="form-top form-control" id="form-pekerjaanwali" type="text">

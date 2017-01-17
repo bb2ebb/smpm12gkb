@@ -134,7 +134,7 @@ class Edit extends CI_Controller {
 
             $id = $this->input->post("idsiswa");
             $namalengkap = $this->db->get_where('siswadatainduk', ['id'=>$id])->result()[0]->namalengkap;
-            $data['alamat'] = $this->db->query("SELECT siswaalamat.id, siswaalamat.alamat, siswaalamat.kelurahan, siswaalamat.dusun, siswaalamat.rt, siswaalamat.rw, provinsi.nama AS provinsi, kabupaten.nama AS kabupaten, kecamatan.nama AS kecamatan, siswaalamat.kodepos AS kodepos FROM siswaalamat, provinsi, kabupaten, kecamatan WHERE provinsi.id=siswaalamat.provinsi AND kabupaten.id=siswaalamat.kabupaten AND kecamatan.id=siswaalamat.kecamatan AND siswaalamat.fkid='" . $id . "'")->result();
+            $data['alamat'] = $this->db->query("SELECT siswaalamat.id, siswaalamat.alamat, siswaalamat.kelurahan, siswaalamat.dusun, siswaalamat.rt, siswaalamat.rw, (SELECT provinsi.nama FROM provinsi WHERE provinsi.id=siswaalamat.provinsi) AS provinsi, (SELECT kabupaten.nama FROM kabupaten WHERE kabupaten.id=siswaalamat.kabupaten) AS kabupaten, (SELECT kecamatan.nama FROM kecamatan WHERE kecamatan.id=siswaalamat.kecamatan) AS kecamatan, siswaalamat.kodepos AS kodepos FROM siswaalamat WHERE siswaalamat.fkid='" . $id . "'")->result();
             $data['provinsi'] = $this->db->order_by("nama", "ASC")->get("provinsi")->result();
             $data['idsiswa'] = $id;
             $data['namasiswa'] = $namalengkap;
@@ -383,7 +383,7 @@ class Edit extends CI_Controller {
             $data['querysiswa'] = $this->db->query($sql)->result();
             $this->load->view('edit_siswa/complete', $data);
         } else {
-            $this->load->view('edit_siswa/inputsiswa', $data);
+            redirect('dashboard');
         }
     }
 

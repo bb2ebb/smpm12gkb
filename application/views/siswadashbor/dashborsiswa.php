@@ -20,8 +20,7 @@
                     <th>Nama Lengkap</th>
                     <th>Nama Panggilan</th>
                     <th>JK</th>
-                    <th>Tempat Lahir</th>
-                    <th>Tanggal Lahir</th>
+                    <th>Tempat, Tanggal Lahir</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,14 +33,13 @@
                             <td>' . $value->nis . '</td>
                             <td>' . $value->nisn . '</td>
                             <td>' . $value->namalengkap . '<hr/>'
-                            . '<button onclick="post(\'delete\', {deletesiswa:\'\', id:\''.$value->id.'\',url:\'dashboard\'})">hapus</button>'
+//                            . '<button onclick="post(\'delete\', {deletesiswa:\'\', id:\''.$value->id.'\',url:\'dashboard\'})">hapus</button>'
                             . '<button onclick="post(\'edit\', {editsiswa:\'\', id:\''.$value->id.'\',url:\'dashboard\'})">edit</button>'
                             . '<button onclick="post(\'/dashboard/view\', {id:\''.$value->id.'\'})">view</button>
                                 </td>
                             <td>' . $value->namapanggilan . '</td>
                             <td>' . $value->jeniskelamin . '</td>
-                            <td>' . $value->tempatlahir . '</td>
-                            <td>' . $value->nohpibu . '</td>
+                            <td>' . $value->tempatlahir.', '.$value->tanggallahir . '</td>
                             </tr>';
                 }
                 ?>
