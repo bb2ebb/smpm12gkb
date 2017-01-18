@@ -6,14 +6,63 @@
         <meta name="Author" content="">
         <meta name="Keywords" content="">
         <meta name="Description" content="">
+        <style>
+            table{
+                font-family: cambria,calibri;
+            }
+            .widthjk tr td:nth-last-child(1){
+                width: 40px;
+                text-align: center;
+            }
+            .widthjk tr td:nth-last-child(2){
+                width: 100px;
+            }
+            .widthjk tr td:nth-last-child(3){
+                width: 45px;
+                text-align: center;
+            }
+            .dtengah{
+                vertical-align: text-bottom;
+                text-align: center;
+                font-weight: bold
+            }
+            .colorwhite{
+                text-align: center;
+                color: whitesmoke;
+                font-weight: bold
+            }
+        </style>
         <title>Document</title>
     </head>
     <body>
         <table border="1">
             <tr>
-                <td>ss</td>
-                <td>ss</td>
-                <td>ss</td>
+                <td><p class="dtengah">DATA JUMLAH SISWA<br/>KELAS VII<br/>TAHUN 2016 – 2017</p>
+                    <table border="1" class="widthjk">
+                        <tr>
+                            <td style="background-color: black" class="colorwhite" colspan="3">Kelas 7</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">VII A</td>
+                            <td>Laki-Laki</td>
+                            <td>70</td>
+                        </tr>
+                        <tr>
+                            <td>Perempuan</td>
+                            <td>70</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Jumlah</td>
+                            <td>70</td>
+                        </tr>
+                    </table>
+                </td>
+                <td><p class="dtengah">DATA JUMLAH SISWA<br/>KELAS VIII<br/>TAHUN 2016 – 2017</p>
+                
+                </td>
+                <td><p class="dtengah">DATA JUMLAH SISWA<br/>KELAS IX<br/>TAHUN 2016 – 2017</p>
+                
+                </td>
             </tr>
         </table>
         <script>
