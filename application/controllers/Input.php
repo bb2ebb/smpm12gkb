@@ -120,7 +120,7 @@ class Input extends CI_Controller {
             $kecamatan = $this->input->post('kecamatan');
             $idsiswa = $this->input->post('idsiswa');
             $namasiswa = $this->input->post('namasiswa');
-            $alamat = trim($this->input->post("alamat"), " \t\r\0\x0B");
+            $alamat = trim($this->input->post("alamat"), " \t\r\n\0\x0B");
             $desa = trim($this->input->post("desa"), " \t\n\r\0\x0B");
             $dusun = trim($this->input->post("dusun"), " \t\n\r\0\x0B");
             $rt = trim($this->input->post("rt"), " \t\n\r\0\x0B");

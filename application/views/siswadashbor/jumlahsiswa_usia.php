@@ -42,12 +42,13 @@
             .widthjk tbody tr td:empty{
                 background-color: black;
             }
-            .widthjk tbody tr:nth-child(2) td:nth-of-type(1), .widthjk tbody tr:nth-child(1) td:nth-of-type(2){
+            .widthjk tbody tr:nth-child(even) td:nth-of-type(1),.widthjk tbody tr:nth-child(odd) td:nth-of-type(2){
                 width: 85px;
                 text-align: left;
+                background-color: yellow;
             }
-            .widthjk tbody tr:nth-child(1) td:nth-of-type(1){
-                width: 45px;
+            .widthjk tbody tr:nth-child(odd) td[rowspan]:nth-of-type(1){
+                width: 50px;
             }
             .dtengah{
                 vertical-align: text-bottom;
@@ -80,43 +81,38 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $l7 = ['l11'=>0];
-                                        $l8=0;
-                                        $l9=0;
                                         foreach ($kelas as $value) {
-                                            if ($value->kelas === '7') {
-                                                $l7 = ['l11'=>$value->l11+$l7['l11']];
-                                            }
-                                            echo '<tr><td rowspan="2">'.$value->ckelas.'</td>
+                                            echo '<tr><td rowspan="2">' . $value->ckelas . '</td>
                                             <td>Laki-Laki</td>
-                                            <td>'.(($value->l11==='0')?"":$value->l11).'</td>
-                                            <td>'.(($value->l12==='0')?"":$value->l12).'</td>
-                                            <td>'.(($value->l13==='0')?"":$value->l13).'</td>
-                                            <td>'.(($value->l14==='0')?"":$value->l14).'</td>
-                                            <td>'.(($value->l15==='0')?"":$value->l15).'</td>
-                                            <td>'.(($value->l16==='0')?"":$value->l16).'</td>
-                                            <td>'.(($value->l17==='0')?"":$value->l17).'</td>
-                                            <td>'.(($value->l18==='0')?"":$value->l18).'</td>
-                                            <td>'.(($value->l19==='0')?"":$value->l19).'</td>
-                                            <td>'.(($value->l20==='0')?"":$value->l20).'</td>
-                                            <td>'.(($value->l21==='0')?"":$value->l21).'</td>
-                                            <td>'.(($value->l22==='0')?"":$value->l22).'</td>
-                                            <td>'.(($value->l==='0')?"":$value->l).'</td>
-                                            <td rowspan="2">'.(($value->jml==='0')?"":$value->jml).'</td>
+                                            <td>' . (($value->l11 === '0') ? "" : $value->l11) . '</td>
+                                            <td>' . (($value->l12 === '0') ? "" : $value->l12) . '</td>
+                                            <td>' . (($value->l13 === '0') ? "" : $value->l13) . '</td>
+                                            <td>' . (($value->l14 === '0') ? "" : $value->l14) . '</td>
+                                            <td>' . (($value->l15 === '0') ? "" : $value->l15) . '</td>
+                                            <td>' . (($value->l16 === '0') ? "" : $value->l16) . '</td>
+                                            <td>' . (($value->l17 === '0') ? "" : $value->l17) . '</td>
+                                            <td>' . (($value->l18 === '0') ? "" : $value->l18) . '</td>
+                                            <td>' . (($value->l19 === '0') ? "" : $value->l19) . '</td>
+                                            <td>' . (($value->l20 === '0') ? "" : $value->l20) . '</td>
+                                            <td>' . (($value->l21 === '0') ? "" : $value->l21) . '</td>
+                                            <td>' . (($value->l22 === '0') ? "" : $value->l22) . '</td>
+                                            <td>' . (($value->l === '0') ? "" : $value->l) . '</td>
+                                            <td rowspan="2">' . (($value->jml === '0') ? "" : $value->jml) . '</td>
                                         </tr>
 
                                         <tr>
                                             <td>Perempuan</td>
-                                            <td>'.(($value->p11==='0')?"":$value->p11).'</td>
-                                            <td>'.(($value->p12==='0')?"":$value->p12).'</td>
-                                            <td>'.(($value->p13==='0')?"":$value->p13).'</td>
-                                            <td>'.(($value->p14==='0')?"":$value->p14).'</td>
-                                            <td>'.(($value->p15==='0')?"":$value->p15).'</td>
-                                            <td>'.(($value->p16==='0')?"":$value->p16).'</td>
-                                            <td>'.(($value->p17==='0')?"":$value->p17).'</td>
-                                            <td>'.(($value->p18==='0')?"":$value->p18).'</td>
-                                            <td>'.(($value->p19==='0')?"":$value->p19).'</td><td>'.(($value->p20==='0')?"":$value->p20).'</td><td>'.(($value->p21==='0')?"":$value->p21).'</td><td>'.(($value->p22==='0')?"":$value->p22).'</td><td>'.(($value->p==='0')?"":$value->p).'</td></tr>';
-                                        }?>
+                                            <td>' . (($value->p11 === '0') ? "" : $value->p11) . '</td>
+                                            <td>' . (($value->p12 === '0') ? "" : $value->p12) . '</td>
+                                            <td>' . (($value->p13 === '0') ? "" : $value->p13) . '</td>
+                                            <td>' . (($value->p14 === '0') ? "" : $value->p14) . '</td>
+                                            <td>' . (($value->p15 === '0') ? "" : $value->p15) . '</td>
+                                            <td>' . (($value->p16 === '0') ? "" : $value->p16) . '</td>
+                                            <td>' . (($value->p17 === '0') ? "" : $value->p17) . '</td>
+                                            <td>' . (($value->p18 === '0') ? "" : $value->p18) . '</td>
+                                            <td>' . (($value->p19 === '0') ? "" : $value->p19) . '</td><td>' . (($value->p20 === '0') ? "" : $value->p20) . '</td><td>' . (($value->p21 === '0') ? "" : $value->p21) . '</td><td>' . (($value->p22 === '0') ? "" : $value->p22) . '</td><td>' . (($value->p === '0') ? "" : $value->p) . '</td></tr>';
+                                        }
+                                        ?>
                                     </tbody>
                                 </table>
                             </td>
@@ -130,37 +126,42 @@
                                     </thead>
                                     <tbody>
                                         <?php
+                                        $jumlahL = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+                                        $jumlahP = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
                                         foreach ($kelas_kel as $value) {
-                                            echo '<tr><td rowspan="2">'.$value->ckelas.'</td>
+                                            $jumlahL = [$value->l11 + $jumlahL[0], $value->l12 + $jumlahL[1], $value->l13 + $jumlahL[2], $value->l14 + $jumlahL[3], $value->l15 + $jumlahL[4], $value->l16 + $jumlahL[5], $value->l17 + $jumlahL[6], $value->l18 + $jumlahL[7], $value->l19 + $jumlahL[8], $value->l20 + $jumlahL[9], $value->l21 + $jumlahL[10], $value->l22 + $jumlahL[11], $value->l + $jumlahL[12]];
+                                            $jumlahP = [$value->p11 + $jumlahP[0], $value->p12 + $jumlahP[1], $value->p13 + $jumlahP[2], $value->p14 + $jumlahP[3], $value->p15 + $jumlahP[4], $value->p16 + $jumlahP[5], $value->p17 + $jumlahP[6], $value->p18 + $jumlahP[7], $value->p19 + $jumlahP[8], $value->p20 + $jumlahP[9], $value->p21 + $jumlahP[10], $value->p22 + $jumlahP[11], $value->p + $jumlahP[12]];
+                                            echo '<tr><td rowspan="2">' . $value->ckelas . '</td>
                                             <td>Laki-Laki</td>
-                                            <td>'.(($value->l11==='0')?"":$value->l11).'</td>
-                                            <td>'.(($value->l12==='0')?"":$value->l12).'</td>
-                                            <td>'.(($value->l13==='0')?"":$value->l13).'</td>
-                                            <td>'.(($value->l14==='0')?"":$value->l14).'</td>
-                                            <td>'.(($value->l15==='0')?"":$value->l15).'</td>
-                                            <td>'.(($value->l16==='0')?"":$value->l16).'</td>
-                                            <td>'.(($value->l17==='0')?"":$value->l17).'</td>
-                                            <td>'.(($value->l18==='0')?"":$value->l18).'</td>
-                                            <td>'.(($value->l19==='0')?"":$value->l19).'</td>
-                                            <td>'.(($value->l20==='0')?"":$value->l20).'</td>
-                                            <td>'.(($value->l21==='0')?"":$value->l21).'</td>
-                                            <td>'.(($value->l22==='0')?"":$value->l22).'</td>
-                                            <td>'.(($value->l==='0')?"":$value->l).'</td>
-                                            <td rowspan="2">'.(($value->jml==='0')?"":$value->jml).'</td>
+                                            <td>' . (($value->l11 === '0') ? "" : $value->l11) . '</td>
+                                            <td>' . (($value->l12 === '0') ? "" : $value->l12) . '</td>
+                                            <td>' . (($value->l13 === '0') ? "" : $value->l13) . '</td>
+                                            <td>' . (($value->l14 === '0') ? "" : $value->l14) . '</td>
+                                            <td>' . (($value->l15 === '0') ? "" : $value->l15) . '</td>
+                                            <td>' . (($value->l16 === '0') ? "" : $value->l16) . '</td>
+                                            <td>' . (($value->l17 === '0') ? "" : $value->l17) . '</td>
+                                            <td>' . (($value->l18 === '0') ? "" : $value->l18) . '</td>
+                                            <td>' . (($value->l19 === '0') ? "" : $value->l19) . '</td>
+                                            <td>' . (($value->l20 === '0') ? "" : $value->l20) . '</td>
+                                            <td>' . (($value->l21 === '0') ? "" : $value->l21) . '</td>
+                                            <td>' . (($value->l22 === '0') ? "" : $value->l22) . '</td>
+                                            <td>' . (($value->l === '0') ? "" : $value->l) . '</td>
+                                            <td rowspan="2">' . (($value->jml === '0') ? "" : $value->jml) . '</td>
                                         </tr>
 
                                         <tr>
                                             <td>Perempuan</td>
-                                            <td>'.(($value->p11==='0')?"":$value->p11).'</td>
-                                            <td>'.(($value->p12==='0')?"":$value->p12).'</td>
-                                            <td>'.(($value->p13==='0')?"":$value->p13).'</td>
-                                            <td>'.(($value->p14==='0')?"":$value->p14).'</td>
-                                            <td>'.(($value->p15==='0')?"":$value->p15).'</td>
-                                            <td>'.(($value->p16==='0')?"":$value->p16).'</td>
-                                            <td>'.(($value->p17==='0')?"":$value->p17).'</td>
-                                            <td>'.(($value->p18==='0')?"":$value->p18).'</td>
-                                            <td>'.(($value->p19==='0')?"":$value->p19).'</td><td>'.(($value->p20==='0')?"":$value->p20).'</td><td>'.(($value->p21==='0')?"":$value->p21).'</td><td>'.(($value->p22==='0')?"":$value->p22).'</td><td>'.(($value->p==='0')?"":$value->p).'</td></tr>';
-                                        }?>
+                                            <td>' . (($value->p11 === '0') ? "" : $value->p11) . '</td>
+                                            <td>' . (($value->p12 === '0') ? "" : $value->p12) . '</td>
+                                            <td>' . (($value->p13 === '0') ? "" : $value->p13) . '</td>
+                                            <td>' . (($value->p14 === '0') ? "" : $value->p14) . '</td>
+                                            <td>' . (($value->p15 === '0') ? "" : $value->p15) . '</td>
+                                            <td>' . (($value->p16 === '0') ? "" : $value->p16) . '</td>
+                                            <td>' . (($value->p17 === '0') ? "" : $value->p17) . '</td>
+                                            <td>' . (($value->p18 === '0') ? "" : $value->p18) . '</td>
+                                            <td>' . (($value->p19 === '0') ? "" : $value->p19) . '</td><td>' . (($value->p20 === '0') ? "" : $value->p20) . '</td><td>' . (($value->p21 === '0') ? "" : $value->p21) . '</td><td>' . (($value->p22 === '0') ? "" : $value->p22) . '</td><td>' . (($value->p === '0') ? "" : $value->p) . '</td></tr>';
+                                        }
+                                        ?>
                                     </tbody>
                                 </table>
                             </td>
@@ -169,9 +170,41 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="3" style="background-color: black; font-size: 25px" class="dtengah colorwhite"><p>
-                    TEST
-                </p></td>
+                <td colspan="3">
+                    <table>
+                        <tr>
+                            <td>
+                                <table border="1" class="widthjk">
+                                    <thead>
+                                        <tr><td colspan="2" rowspan="2">Uraian</td><td colspan="12">Usia</td><td rowspan="2">Jumlah</td><td rowspan="2">TOTAL</td></tr>
+                                        <tr><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td rowspan="2">VII, VIII, IX</td>
+                                            <td>Laki-Laki</td>
+                                            <?php
+                                            foreach ($jumlahL as $v) {
+                                                echo '<td>'.(($v===0)?"":$v).'</td>';
+                                            }
+                                            echo '<td rowspan="2">'.(($jumlahL[12]+$jumlahP[12]===0)?"":$jumlahL[12]+$jumlahP[12]).'</td>';
+                                            ?>
+
+                                        </tr>
+                                        <tr>
+                                            <td>Perempuan</td>
+                                            <?php
+                                            foreach ($jumlahP as $v) {
+                                                echo '<td>'.(($v===0)?"":$v).'</td>';
+                                            }
+                                            ?>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
             </tr>
         </table>
     </body>

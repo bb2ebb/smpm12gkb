@@ -34,7 +34,7 @@
                             <td>' . $value->nisn . '</td>
                             <td>' . $value->namalengkap . '<hr/>'
 //                            . '<button onclick="post(\'delete\', {deletesiswa:\'\', id:\''.$value->id.'\',url:\'dashboard\'})">hapus</button>'
-                            . '<button onclick="post(\'edit\', {editsiswa:\'\', id:\''.$value->id.'\',url:\'dashboard\'})">edit</button>'
+                            . '<button id="'.$value->id.'" onclick="post(\'edit\', {editsiswa:\'\', id:\''.$value->id.'\',url:\'dashboard\'})">edit</button>'
                             . '<button onclick="post(\'/dashboard/view\', {viewsiswa:\'\',id:\''.$value->id.'\'})">view</button>
                                 </td>
                             <td>' . $value->namapanggilan . '</td>
